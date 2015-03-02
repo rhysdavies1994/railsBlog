@@ -23,15 +23,15 @@
 		<ul>
 			<li class="category">Website</li>
 			<li><%= link_to "Blog", root_path %></li>
-			<li><a href="">About</a></li>
+			<li><a href="about">About</a></li>
 		</ul>
 
 		<ul>
 			<li class="category">Social</li>
-			<li><a href="">Twitter</a></li>
-			<li><a href="">Instagram</a></li>
-			<li><a href="">Github</a></li>
-			<li><a href="">Email</a></li>
+			<li><a href="https://twitter.com/?lang=en">Twitter</a></li>
+			<li><a href="https://instagram.com/">Instagram</a></li>
+			<li><a href="https://github.com/">Github</a></li>
+			<li><a href="mailto:rhysdavies1994@gmail.com">Email</a></li>
 		</ul>	
 
 		<p class="sign_in">Admin Login</p>
@@ -39,7 +39,13 @@
 
 	<div id="main_content">
 		<div id="header">
+		 <% if current_page?(root_path) %>
 			<p>All Posts</p>
+		<% elsif current_page?(about_path) %>
+			<p>About</p>
+		<% else %>
+			<%= link_to "Back to All Posts", root_path %>
+		<% end %>
 
 			<div class="buttons">
 				<button class="button"><%= link_to "New Post", new_post_path %></button>
